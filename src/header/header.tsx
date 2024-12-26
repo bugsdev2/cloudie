@@ -26,7 +26,7 @@ export const Header = () => {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-
+        setCurrentLocation('Your Location');
         setCurrentPosition({ latitude, longitude });
       },
       (error) => {
@@ -53,31 +53,24 @@ export const Header = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="bg-text rounded-full px-5 py-2 min-w-80 flex relative">
+    <div className='flex flex-col items-center justify-center'>
+      <div className='bg-text rounded-full px-5 py-2 min-w-80 flex relative'>
         <input
           ref={inputRef}
-          className="text-center bg-text outline-none w-full font-bold"
-          type="text"
-          id="search"
-          name="search"
+          className='text-center bg-text outline-none w-full font-bold'
+          type='text'
+          id='search'
+          name='search'
           onChange={(e) => {
             setSearchQuery(e.target.value);
             getSearchSuggestions(e.target.value);
           }}
         />
-        <span className="bi bi-search cursor-pointer ps-1"></span>
+        <span className='bi bi-search cursor-pointer ps-1'></span>
         {searchQuery !== '' && searchSuggestions?.results?.length !== 0 && (
-          <div
-            className="absolute top-10 left-0  bg-text min-w-80 px-2  text-center flex flex-col gap-1"
-            id="search-suggestions"
-          >
+          <div className='absolute top-10 left-0  bg-text min-w-80 px-2  text-center flex flex-col gap-1' id='search-suggestions'>
             {searchSuggestions?.results?.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => handleLocationSelect(item.name, item.latitude, item.longitude)}
-                className="cursor-pointer py-1"
-              >
+              <div key={item.id} onClick={() => handleLocationSelect(item.name, item.latitude, item.longitude)} className='cursor-pointer py-1'>
                 {item.name}, {item.admin1}, {item.country}
               </div>
             ))}
