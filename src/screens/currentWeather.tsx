@@ -48,13 +48,13 @@ const CurrentWeather = () => {
         <div>{processWeatherCodeImage(currentWeather!.current.weather_code, currentWeather!.current.is_day)}</div>
       </div>
       <div className='flex justify-center mt-5 text-base font-bold'>
-        <div className='grid grid-cols-3 justify-center items-center border w-80 bg-text rounded-3xl gap-2'>
+        <div className='grid grid-cols-3 justify-center items-center border w-80 bg-text rounded-3xl'>
           <div className='flex flex-col justify-center items-center p-3'>
             <span className='bi bi-thermometer text-xl'></span>
             <p>
               {currentWeather?.current.apparent_temperature} {currentWeather?.current_units.apparent_temperature}
             </p>
-            <p className='text-sm text-surface1'>Feels like</p>
+            <p className='text-sm text-surface1 text-center'>Feels like</p>
           </div>
           <div className='flex flex-col justify-center items-center p-3'>
             <span className='bi bi-wind  text-xl'></span>
@@ -81,7 +81,7 @@ const CurrentWeather = () => {
             {currentWeather?.current.is_day ? <span className='bi bi-sun-fill text-xl'></span> : <span className='bi bi-moon-fill text-xl'></span>}
 
             <p>{currentWeather?.current.is_day ? 'Day' : 'Night'}</p>
-            <p className='text-sm text-surface1'> Sun Phase</p>
+            <p className='text-sm text-surface1 text-center'> Sun Phase</p>
           </div>
           <div className='flex flex-col justify-center items-center p-3'>
             <span className='bi bi-cloud-drizzle-fill  text-xl'></span>
