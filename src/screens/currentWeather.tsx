@@ -58,7 +58,7 @@ const CurrentWeather = () => {
           </div>
           <div className='flex flex-col justify-center items-center p-3'>
             <span className='bi bi-wind  text-xl'></span>
-            <p>
+            <p className='text-center'>
               {currentWeather?.current.wind_speed_10m} {currentWeather?.current_units.wind_speed_10m}
             </p>
             <p className='text-sm text-surface1'>Wind</p>
