@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 export async function getCurrentWeather(lat: number, lon: number): Promise<CurrentWeatherData | undefined> {
+  if (lat === 0 && lon === 0) return undefined;
+
   const latitude = lat.toString();
   const longitude = lon.toString();
 

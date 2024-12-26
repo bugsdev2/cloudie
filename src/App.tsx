@@ -1,18 +1,18 @@
-import { getCurrentWeather } from './api/getCurrentWeather';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Header } from './header/header';
+import CurrentWeather from './screens/currentWeather';
 
 function App() {
-  const getData = async () => {
-    const testData = await getCurrentWeather(15, 17);
-    console.log(testData);
-  };
-
-  getData();
-
   return (
-    <>
-      <div className="bg-base text-text">Hello</div>
-    </>
+    <div className="bg-base min-h-[100vh] p-10">
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={<CurrentWeather />}
+        />
+      </Routes>
+    </div>
   );
 }
 
